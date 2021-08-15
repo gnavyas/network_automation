@@ -8,12 +8,12 @@ global
 	group haproxy
 	daemon
 
-	# Default SSL material locations
+	# Default material locations of SSL
 	ca-base /etc/ssl/certs
 	crt-base /etc/ssl/private
 
-	# Default ciphers to use on SSL-enabled listening sockets.
-	# For more information, see ciphers(1SSL). This list is from:
+	# Default listening sockets ciphers which used on SSL-enabled.
+	# To know futher information, go to ciphers(1SSL). The list  from:
 	#  https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/
 	ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256::RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
 	ssl-default-bind-options no-sslv3
