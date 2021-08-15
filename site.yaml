@@ -2,17 +2,17 @@
 - hosts: webservers
   gather_facts: yes
   tasks:
-   - name: Updating cache
+   - name: cache is updating
      become: yes
      apt:
       update_cache: yes
       cache_valid_time: 3600
-   - name: Knowing wheather nginx has been installed
+   - name: To know if nginx is installed
      become: yes
      apt:
       name: nginx
       state: latest
-   - name: php-fpm installation
+   - name: php-fpm installing
      become: yes
      apt:
       name: php7.4-fpm 
@@ -27,7 +27,7 @@
      copy:
        src: index.php
        dest: /var/www/html/
-   - name: template file added
+   - name: added the template file
      become: yes
      template:
        src: nginx.conf.j2
@@ -38,7 +38,7 @@
        src: /etc/nginx/sites-available/default
        dest: /etc/nginx/sites-enabled/default
        state: link
-   - name: Restarting the Web Servers
+   - name: The Web Servers are restarting
      become: yes
      service:
        name: nginx
@@ -47,15 +47,15 @@
   gather_facts: yes
   become: yes
   tasks:
-   - name: Haproxy upadating cahe
+   - name: Haproxy upadate
      apt:
       update_cache: yes
-   - name: Installation of haproxy
+   - name: Installation haproxy
      become: yes
      apt:
       name: haproxy
       state: present
-   - name: Update configuraton file of haproxy
+   - name: haproxy update configuration file
      template:
       src: haproxy.cfg.j2
       dest: /etc/haproxy/haproxy.cfg
